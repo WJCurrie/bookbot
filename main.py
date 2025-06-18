@@ -4,11 +4,13 @@
 #I'm not sure this will ever work as expected.
 
 #importing stuff
-from stats import word_num, get_book_text, char_count
+from stats import word_num, get_book_text, char_count, sortdict
 
 #create 'main' function here to run the program
 def main():
+    #creating dictionaries
     num_char = {}
+    sortchar = []
     #string creation to direct to the file
     bookplace = "/home/whitn/bookbot/books/frankenstein.txt"
     #string to hold the txt from the file
@@ -17,14 +19,23 @@ def main():
     word_count = (word_num(booktxt))
     #number of times per char
     num_char = (char_count(booktxt))
-    
-    print(num_char)
-    
-    #removed per instructions
-    #print(word_count, 'words found in the document')
+    #sorting dictionary and so on
+    sortchar = (sortdict(num_char))
 
-    #removed per instructions
-    #print(booktxt)
+    #attempting to generate report
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
+    print("Found", word_count, "total words")
+    print("--------- Character Count -------")
+    
+    for item in sortchar:
+        character = item["letter"]
+        count = item["num"]
+        if character.isalpha():
+            print(f"{character}: {count}")
+
+    print("============= END ===============")
 
     #close out
     exit()

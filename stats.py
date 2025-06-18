@@ -25,3 +25,18 @@ def char_count(contents):
 
     #hopefully just need to return the dictionary
     return char_dict
+
+def valsort(dict):
+    return dict["num"]
+
+def sortdict(countdict):
+    #transver dictionary into ordered list of dictionaries
+    list_items = []
+    for char, count in countdict.items():
+        list_items.append({"letter": char, "num": count})
+
+    
+    #struggling to get the items to list properly
+    list_items.sort(reverse=True, key=valsort)
+
+    return list_items
