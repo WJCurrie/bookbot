@@ -6,13 +6,22 @@
 #importing stuff
 from stats import word_num, get_book_text, char_count, sortdict
 
+import sys
+
 #create 'main' function here to run the program
 def main():
     #creating dictionaries
     num_char = {}
     sortchar = []
+    #checking sys.argv for two arguments:
+    #a directive to main.py, and a second to
+    #a specific book
+    if len(sys.argv) != 2:
+        print('Usage: python3 main.py <path_to_book>')
+        sys.exit(1)
+
     #string creation to direct to the file
-    bookplace = "/home/whitn/bookbot/books/frankenstein.txt"
+    bookplace = sys.argv[1]
     #string to hold the txt from the file
     booktxt = (get_book_text(bookplace))
     #int to hold the number of words
@@ -24,7 +33,7 @@ def main():
 
     #attempting to generate report
     print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt...")
+    print("Analyzing book found at: ", sys.argv[1])
     print("----------- Word Count ----------")
     print("Found", word_count, "total words")
     print("--------- Character Count -------")
@@ -38,7 +47,7 @@ def main():
     print("============= END ===============")
 
     #close out
-    exit()
+    sys.exit()
 
     
 #call main function to kick off everything

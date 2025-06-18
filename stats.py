@@ -7,7 +7,7 @@ def get_book_text(bookfile):
 def word_num(contents):
      #so a note here. This is creating a list of the words from the file,
      #then returning the total length of the list. I did attempt a loop,
-     #but this book is exceptionally long, and the look was taking too much time.
+     #but this book is exceptionally long, and the loop was taking too much time.
      bwords = contents.split()
      return len(bwords)
 
